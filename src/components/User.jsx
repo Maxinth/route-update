@@ -1,27 +1,24 @@
 import React from "react";
 import { Link, Outlet } from "react-router-dom";
 
-const User = () => {
+const Users = ({ users }) => {
   return (
     <>
-      <div>Users </div>
-      <nav className="nav">
-        {/* <Link to="/user/profile">Profile</Link>
-        <Link to="/user/account">Account</Link> */}
+      <h2>Users</h2>
 
-        {/* using relative paths also work as the <Profile /> and <Account /> components are nested
-        within <User /> in the Routes in app.js */}
+      <ul>
+        {users.map((user) => (
+          <li key={user.id}>
+            <Link to={user.id}>{user.fullName}</Link>
+          </li>
+        ))}
+      </ul>
 
-        <Link to="profile">Profile</Link>
-        <Link to="account">Account</Link>
-      </nav>
-
-      {/** HERE :  */}
-      {/* nested components within the <Route /> in App.js show up here */}
+      {/* nested Route components how up here */}
       <Outlet />
-      {/* nested components within the <Route /> in App.js show up here */}
+      {/* nested Route components how up here */}
     </>
   );
 };
 
-export default User;
+export default Users;
