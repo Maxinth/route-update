@@ -1,8 +1,9 @@
 import { Link, useParams } from "react-router-dom";
 
 const User = () => {
-  const { userId } = useParams();
-  console.log(userId);
+  const params = useParams();
+  const { userId } = params;
+  console.log(params);
 
   return (
     <>
