@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 
 const User = () => {
   return (
@@ -9,6 +9,9 @@ const User = () => {
         <Link to="/user/profile">Profile</Link>
         <Link to="/user/account">Account</Link>
       </nav>
+      {/* nested components within the <Route /> in App.js show up here */}
+      <Outlet />
+      {/* nested components within the <Route /> in App.js show up here */}
     </>
   );
 };

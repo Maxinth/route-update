@@ -1,5 +1,5 @@
 import "./App.css";
-import { Routes, Route, Link, Outlet } from "react-router-dom";
+import { Routes, Route, Link } from "react-router-dom";
 import Home from "./components/Home";
 import User from "./components/User";
 import NoMatch from "./components/NoMatch";
@@ -16,11 +16,11 @@ const App = () => {
         <Link to="/user">User</Link>
         <Link to="/">Root(/)</Link>
       </nav>
-      <Outlet />
+
       <Routes>
         <Route index element={<Home />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/user" element={<User />}>
+        <Route path="home" element={<Home />} />
+        <Route path="user" element={<User />}>
           <Route path="profile" element={<Profile />} />
           <Route path="account" element={<Account />} />
         </Route>
