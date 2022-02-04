@@ -1,20 +1,29 @@
 import "./App.css";
-import { Routes, Route } from "react-router-dom";
-import Users from "./components/Users";
-import MainHome from "./components/MainHome";
-import Navbar from "./components/Nav/Navbar";
+import { Routes, Route, Link } from "react-router-dom";
+import Home from "./components/Home";
+import User from "./components/User";
+import NoMatch from "./components/NoMatch";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <h1>Route6</h1>
-      <Navbar />
+    <>
+      <h1>Rou6</h1>
+
+      <nav>
+        <Link to="/home">Home</Link>
+        <Link to="/user">User</Link>
+      </nav>
+
       <Routes>
-        <Route path="/" element={<MainHome />} />
-        <Route path="users" element={<Users />} />
+        {/* index prop ensures the root path returns the Home component */}
+        <Route index element={<Home />} />
+        {/* index prop ensures the root path returns the Home component */}
+        <Route path="home" element={<Home />} />
+        <Route path="user" element={<User />} />
+        <Route path="*" element={<NoMatch />} />
       </Routes>
-    </div>
+    </>
   );
-}
+};
 
 export default App;
